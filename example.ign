@@ -28,7 +28,7 @@
       },
       {
         "overwrite": true,
-        "path": "/opt/transmission/download"
+        "path": "/opt/transmission/downloads"
       },
       {
         "overwrite": true,
