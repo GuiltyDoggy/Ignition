@@ -19,24 +19,54 @@
   "storage": {
     "directories": [
       {
+        "group": {
+          "name": "root"
+        },
         "overwrite": true,
-        "path": "/opt/transmission"
+        "path": "/opt/transmission",
+        "user": {
+          "name": "root"
+        }
       },
       {
+        "group": {
+          "name": "root"
+        },
         "overwrite": true,
-        "path": "/opt/transmission/config"
+        "path": "/opt/transmission/config",
+        "user": {
+          "name": "root"
+        }
       },
       {
+        "group": {
+          "name": "root"
+        },
         "overwrite": true,
-        "path": "/opt/transmission/downloads"
+        "path": "/opt/transmission/downloads",
+        "user": {
+          "name": "root"
+        }
       },
       {
+        "group": {
+          "name": "root"
+        },
         "overwrite": true,
-        "path": "/opt/transmission/watch"
+        "path": "/opt/transmission/watch",
+        "user": {
+          "name": "root"
+        }
       },
       {
+        "group": {
+          "name": "root"
+        },
         "overwrite": true,
-        "path": "/opt/transmission/ui"
+        "path": "/opt/transmission/ui",
+        "user": {
+          "name": "root"
+        }
       }
     ],
     "files": [
