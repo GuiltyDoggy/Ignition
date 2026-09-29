@@ -1,1 +1,112 @@
-{"ignition":{"version":"3.6.0"},"passwd":{"users":[{"groups":["wheel"],"name":"yosuke","passwordHash":"$y$j9T$HWpQz67RDSVwh/OGC57Bs1$YK4Nm6NoPZbZ.4YRW2YXY.Rkaty5shLxg/aavq0DYP7","sshAuthorizedKeys":["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJgMWZb/57ya0PiXv7POgRMSDVMmqLQ+Tyjx/elxoqX"]}]},"storage":{"directories":[{"overwrite":true,"path":"/opt/transmission"},{"overwrite":true,"path":"/opt/transmission/config"},{"overwrite":true,"path":"/opt/transmission/download"},{"overwrite":true,"path":"/opt/transmission/watch"},{"overwrite":true,"path":"/opt/transmission/ui"}],"files":[{"overwrite":true,"path":"/etc/hostname","contents":{"compression":"","source":"data:,fcos-vm%0A"},"mode":420},{"path":"/etc/vconsole.conf","contents":{"compression":"","source":"data:,KEYMAP%3Ddvorak%0A"},"mode":420},{"path":"/etc/systemd/zram-generator.conf","contents":{"compression":"","source":"data:;base64,IyBUaGlzIGNvbmZpZyBmaWxlIGVuYWJsZXMgYSAvZGV2L3pyYW0wIGRldmljZSB3aXRoIHRoZSBkZWZhdWx0IHNldHRpbmdzClt6cmFtMF0K"},"mode":420},{"path":"/etc/zincati/config.d/55-updates-strategy.toml","contents":{"compression":"gzip","source":"data:;base64,H4sIAAAAAAAC/1zOsaqDQBCF4X6f4rC3uTZm0wQJWIX0AU0lIpPsYBZ0FJ1FfPtgiE3an5mP84er0KNjjDyFwYcn4uhJeQYpMuoxCIoontYZ//fykuCA40++FWUCU30fazPrRMrtihx2Z62p9oN0b+kSxA9LXZuPk6OCLaJYbARN2mjoeUNcdnbOmo6l1VfTB4nbwBwnZ94BAAD//+BMQC3AAAAA"}},{"path":"/etc/doas.conf","contents":{"compression":"","source":"data:,permit%20nopass%20%3Awheel%0A"},"mode":420},{"overwrite":true,"path":"/opt/transmission/ui/flood-for-transmission","contents":{"compression":"gzip","source":"https://github.com/johman10/flood-for-transmission/releases/download/v1.0.1/flood-for-transmission.tar.gz","verification":{"hash":"sha512-2317ce2d0546b038d3b165af0846ea2e0dfb82acb7e2143d1a21eb0cb48386fa8051fcf34577bbf26bd9134c39daae8664d9ce93ca619ca3893a588e2100c177"}}},{"path":"/etc/containers/systemd/transmission.container","contents":{"compression":"gzip","source":"data:;base64,H4sIAAAAAAAC/6SSzW5aMRCF934KS92WuKjtIlfyggSksgihBRIpEYom1wNM4+tBM2Mob1/RX1h00yw8tj75fDqS/bgoZEs3RG2FtkZc4sBPOXVQ/OcKKaN524D5PeXs1UDMzwWKdqRKXJx7vOZiQAVl6cYdrDFmbeWCOGQq9Zui7FCCnWSaDIZq7k9wAh3G0xtuUI0X2wSGUXBNanJw7s0QV1TQ33GuHaqHkvwEbc/y4n6yGHYgYcMdhgNrfcEw5LZ2WEzDVPgrtqZnVUICgya0XFa0bh7e6gYE0//beF8yQ9Lm5Phq6x6s3TS/tlfbKjXH9dvjnZvW50y6mbJYvHx32W+O44x+7H/ov29+zH/xUNP27xONyo6Ey7GHvwMheM6o7oTG+UMcWRsW8+tz/GUwmd2MZ7Px7eTpfnT19On2ZhRDpbDKzKm3YunZ+f8bFzXIeenuoRimq0PsajbqVUW5MJA1mvseAAD//wMzKjLnAgAA"}}]},"systemd":{"units":[{"contents":"[Unit]\nDescription=Layer default packages with rpm-ostree\nWants=network-online.target\nAfter=network-online.target\n# We run before `zincati.service` to avoid conflicting rpm-ostree\n# transactions.\nBefore=zincati.service\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\n# `--allow-inactive` ensures that rpm-ostree does not return an error\n# if the package is already installed. This is useful if the package is\n# added to the root image in a future Fedora CoreOS release as it will\n# prevent the service from failing.\nExecStart=/usr/bin/rpm-ostree install -y --allow-inactive vim opendoas\nExecStart=/bin/touch /var/lib/%N.stamp\nExecStart=/bin/systemctl --no-block reboot\n\n[Install]\nWantedBy=multi-user.target\n","enabled":true,"name":"rpm-ostree-install-defaults.service"}]}}
+{
+  "ignition": {
+    "version": "3.6.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "groups": [
+          "wheel"
+        ],
+        "name": "yosuke",
+        "passwordHash": "$y$j9T$HWpQz67RDSVwh/OGC57Bs1$YK4Nm6NoPZbZ.4YRW2YXY.Rkaty5shLxg/aavq0DYP7",
+        "sshAuthorizedKeys": [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJgMWZb/57ya0PiXv7POgRMSDVMmqLQ+Tyjx/elxoqX"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "directories": [
+      {
+        "overwrite": true,
+        "path": "/opt/transmission"
+      },
+      {
+        "overwrite": true,
+        "path": "/opt/transmission/config"
+      },
+      {
+        "overwrite": true,
+        "path": "/opt/transmission/download"
+      },
+      {
+        "overwrite": true,
+        "path": "/opt/transmission/watch"
+      },
+      {
+        "overwrite": true,
+        "path": "/opt/transmission/ui"
+      }
+    ],
+    "files": [
+      {
+        "overwrite": true,
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,fcos-vm%0A"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/vconsole.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,KEYMAP%3Ddvorak%0A"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/systemd/zram-generator.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:;base64,IyBUaGlzIGNvbmZpZyBmaWxlIGVuYWJsZXMgYSAvZGV2L3pyYW0wIGRldmljZSB3aXRoIHRoZSBkZWZhdWx0IHNldHRpbmdzClt6cmFtMF0K"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/zincati/config.d/55-updates-strategy.toml",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/1zOsaqDQBCF4X6f4rC3uTZm0wQJWIX0AU0lIpPsYBZ0FJ1FfPtgiE3an5mP84er0KNjjDyFwYcn4uhJeQYpMuoxCIoontYZ//fykuCA40++FWUCU30fazPrRMrtihx2Z62p9oN0b+kSxA9LXZuPk6OCLaJYbARN2mjoeUNcdnbOmo6l1VfTB4nbwBwnZ94BAAD//+BMQC3AAAAA"
+        }
+      },
+      {
+        "path": "/etc/doas.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,permit%20nopass%20%3Awheel%0A"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/opt/transmission/ui/flood-for-transmission",
+        "contents": {
+          "compression": "gzip",
+          "source": "https://github.com/johman10/flood-for-transmission/releases/download/v1.0.1/flood-for-transmission.tar.gz",
+          "verification": {
+            "hash": "sha512-2317ce2d0546b038d3b165af0846ea2e0dfb82acb7e2143d1a21eb0cb48386fa8051fcf34577bbf26bd9134c39daae8664d9ce93ca619ca3893a588e2100c177"
+          }
+        }
+      },
+      {
+        "path": "/etc/containers/systemd/transmission.container",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/6SSzW5aMRCF934KS92WuKjtIlfyggSksgihBRIpEYom1wNM4+tBM2Mob1/RX1h00yw8tj75fDqS/bgoZEs3RG2FtkZc4sBPOXVQ/OcKKaN524D5PeXs1UDMzwWKdqRKXJx7vOZiQAVl6cYdrDFmbeWCOGQq9Zui7FCCnWSaDIZq7k9wAh3G0xtuUI0X2wSGUXBNanJw7s0QV1TQ33GuHaqHkvwEbc/y4n6yGHYgYcMdhgNrfcEw5LZ2WEzDVPgrtqZnVUICgya0XFa0bh7e6gYE0//beF8yQ9Lm5Phq6x6s3TS/tlfbKjXH9dvjnZvW50y6mbJYvHx32W+O44x+7H/ov29+zH/xUNP27xONyo6Ey7GHvwMheM6o7oTG+UMcWRsW8+tz/GUwmd2MZ7Px7eTpfnT19On2ZhRDpbDKzKm3YunZ+f8bFzXIeenuoRimq0PsajbqVUW5MJA1mvseAAD//wMzKjLnAgAA"
+        }
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Layer default packages with rpm-ostree\nWants=network-online.target\nAfter=network-online.target\n# We run before `zincati.service` to avoid conflicting rpm-ostree\n# transactions.\nBefore=zincati.service\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\n# `--allow-inactive` ensures that rpm-ostree does not return an error\n# if the package is already installed. This is useful if the package is\n# added to the root image in a future Fedora CoreOS release as it will\n# prevent the service from failing.\nExecStart=/usr/bin/rpm-ostree install -y --allow-inactive vim opendoas\nExecStart=/bin/touch /var/lib/%N.stamp\nExecStart=/bin/systemctl --no-block reboot\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "rpm-ostree-install-defaults.service"
+      }
+    ]
+  }
+}
