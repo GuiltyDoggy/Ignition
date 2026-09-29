@@ -20,52 +20,52 @@
     "directories": [
       {
         "group": {
-          "name": "root"
+          "id": 1001
         },
         "overwrite": true,
         "path": "/opt/transmission",
         "user": {
-          "name": "root"
+          "id": 1001
         }
       },
       {
         "group": {
-          "name": "root"
+          "id": 1001
         },
         "overwrite": true,
         "path": "/opt/transmission/config",
         "user": {
-          "name": "root"
+          "id": 1001
         }
       },
       {
         "group": {
-          "name": "root"
+          "id": 1001
         },
         "overwrite": true,
         "path": "/opt/transmission/downloads",
         "user": {
-          "name": "root"
+          "id": 1001
         }
       },
       {
         "group": {
-          "name": "root"
+          "id": 1001
         },
         "overwrite": true,
         "path": "/opt/transmission/watch",
         "user": {
-          "name": "root"
+          "id": 1001
         }
       },
       {
         "group": {
-          "name": "root"
+          "id": 1001
         },
         "overwrite": true,
         "path": "/opt/transmission/ui",
         "user": {
-          "name": "root"
+          "id": 1001
         }
       }
     ],
@@ -121,7 +121,7 @@
         "path": "/etc/containers/systemd/transmission.container",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/4SSQUtbQRDH7/spFnptfA1tDz7YQ9RAczCmTaKgBBnfTpKh+2bCzKyp377Y1pocxMPOf/nx/7GwzN2SyVfhAq1T2jkJp1GcSe6B4/cKuaBH34LHPZUSzUE9LhTYejIj4RDuzoUdiFFXYdLDBlOxTk9ImkJcfxnqI2rjB05bwNE8/Ben0GM6bIRRdVnuMjgmxQ2Z61MIHy5wTYzxWkrt0SJwjlP0vejP8JelRnZ+9FbTCa9p077k7UfbgmJ+W8iy5yKQrT24vq/twbtt+y/er1dqn89LMYYwqw+FbDsT9XT66XTYPo8j+nX4Zfi5/TPf4k3Nu9ePGvMjqXCP7PEalOChoIUDmha3aexds1ycH+Mfo+n8cjKfT66m9zfjs/tvV5fj1FRq1kUkD9aiAz/eggmbQymrcAPsmM+eUl+L06Aa6omDbtDD7wAAAP//iPl83W0CAAA="
+          "source": "data:;base64,H4sIAAAAAAAC/4SSwWobMRCG73oKQa911qbtIQs6OLFp9xDHre0EEkyYrMb2UO2MGY3i5u1L2qb1QoMPml98/B8CMfcrJlu7CeZWaW8kHMZ+LrED9l8LxITmbQfmD5SSzwZqfqnAuaOcSdi5+0thA2LUtWs62GJIudUzkioRlx8Z9Qm1siOnTmCYzf0VZ9BhOG64cTFZ7SMYBsUtZdNn595NcEOM/kZS6TB74OhnaAfR7+43C5XsrfdW1QpvaFu/5t37vAPF+LYQ5cBJIOb66HpaO4C1u/pPnK4Xql/Oa9E7Ny+PifJuLmrhfHg+ql9Gj34afRx9qH/Nt3hV4v7fR035iVS4QzZ/A0rwmDC7Ixrmq2YSRsPhsE8//48u78LU2mq1vOzjb+PZ4qpZLJrr2cPt9OLhy/XVNFSFqk0SiYON6MD6G9NwNkhp7W6BDePFc+hKMhqUjHpmoFs09zMAAP//pB7YcJkCAAA="
         }
       }
     ]
