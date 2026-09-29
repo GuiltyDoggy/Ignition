@@ -1,0 +1,1 @@
+{"ignition":{"version":"3.6.0"},"passwd":{"users":[{"groups":["wheel"],"name":"yosuke","sshAuthorizedKeys":["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJgMWZb/57ya0PiXv7POgRMSDVMmqLQ+Tyjx/elxoqX"]}]}}
