@@ -82,9 +82,8 @@
       },
       {
         "overwrite": true,
-        "path": "/opt/transmission/ui/flood-for-transmission",
+        "path": "/opt/transmission/ui/flood-for-transmission.tar.gz",
         "contents": {
-          "compression": "gzip",
           "source": "https://github.com/johman10/flood-for-transmission/releases/download/v1.0.1/flood-for-transmission.tar.gz"
         }
       },
@@ -94,6 +93,20 @@
           "compression": "gzip",
           "source": "data:;base64,H4sIAAAAAAAC/6SSzW5aMRCF934KS92WuKjtIlfyggSksgihBRIpEYom1wNM4+tBM2Mob1/RX1h00yw8tj75fDqS/bgoZEs3RG2FtkZc4sBPOXVQ/OcKKaN524D5PeXs1UDMzwWKdqRKXJx7vOZiQAVl6cYdrDFmbeWCOGQq9Zui7FCCnWSaDIZq7k9wAh3G0xtuUI0X2wSGUXBNanJw7s0QV1TQ33GuHaqHkvwEbc/y4n6yGHYgYcMdhgNrfcEw5LZ2WEzDVPgrtqZnVUICgya0XFa0bh7e6gYE0//beF8yQ9Lm5Phq6x6s3TS/tlfbKjXH9dvjnZvW50y6mbJYvHx32W+O44x+7H/ov29+zH/xUNP27xONyo6Ey7GHvwMheM6o7oTG+UMcWRsW8+tz/GUwmd2MZ7Px7eTpfnT19On2ZhRDpbDKzKm3YunZ+f8bFzXIeenuoRimq0PsajbqVUW5MJA1mvseAAD//wMzKjLnAgAA"
         }
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Layer default packages with rpm-ostree\nWants=network-online.target\nAfter=network-online.target\n# We run before `zincati.service` to avoid conflicting rpm-ostree\n# transactions.\nBefore=zincati.service\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\n# `--allow-inactive` ensures that rpm-ostree does not return an error\n# if the package is already installed. This is useful if the package is\n# added to the root image in a future Fedora CoreOS release as it will\n# prevent the service from failing.\nExecStart=/usr/bin/rpm-ostree install -y --allow-inactive vim opendoas\nExecStart=/bin/touch /var/lib/%N.stamp\nExecStart=/bin/systemctl --no-block reboot\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "rpm-ostree-install-defaults.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=Extract Transmission UI\nAfter=local-fs.target\nConditionPathExists!=/opt/transmission/ui/.extracted\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/bin/tar -xzf /opt/transmission/ui/flood-for-transmission.tar.gz -C /opt/transmission/ui\nExecStart=/bin/touch /opt/transmission/ui/.extracted\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "extract-transmission-ui.service"
       }
     ]
   }
