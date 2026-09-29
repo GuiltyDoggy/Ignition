@@ -104,7 +104,7 @@
         "name": "rpm-ostree-install-defaults.service"
       },
       {
-        "contents": "[Unit]\nDescription=Extract Transmission UI\nAfter=local-fs.target\nConditionPathExists!=/opt/transmission/ui/.extracted\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/bin/tar -xzf /opt/transmission/ui/flood-for-transmission.tar.gz -C /opt/transmission/ui\nExecStart=/bin/touch /opt/transmission/ui/.extracted\n\n[Install]\nWantedBy=multi-user.target\n",
+        "contents": "[Unit]\nDescription=Extract Transmission UI\nConditionPathExists!=/opt/transmission/ui/.extracted\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/bin/tar -xzf /opt/transmission/ui/flood-for-transmission.tar.gz -C /opt/transmission/ui\nExecStart=/bin/touch /opt/transmission/ui/.extracted\n\n[Install]\nWantedBy=multi-user.target\n",
         "enabled": true,
         "name": "extract-transmission-ui.service"
       }
