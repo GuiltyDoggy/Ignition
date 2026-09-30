@@ -131,6 +131,14 @@
         "mode": 420
       },
       {
+        "path": "/etc/modprobe.d/blacklist-mediatek.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,blacklist%20mt7921e%0Ablacklist%20btusb%0A"
+        },
+        "mode": 420
+      },
+      {
         "overwrite": true,
         "path": "/opt/transmission/ui/flood-for-transmission.tar.gz",
         "contents": {
