@@ -1,0 +1,170 @@
+{
+  "ignition": {
+    "version": "3.6.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "groups": [
+          "wheel"
+        ],
+        "name": "yosuke",
+        "passwordHash": "$y$j9T$HWpQz67RDSVwh/OGC57Bs1$YK4Nm6NoPZbZ.4YRW2YXY.Rkaty5shLxg/aavq0DYP7",
+        "sshAuthorizedKeys": [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJgMWZb/57ya0PiXv7POgRMSDVMmqLQ+Tyjx/elxoqX"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "directories": [
+      {
+        "group": {
+          "id": 1001
+        },
+        "overwrite": true,
+        "path": "/opt/transmission",
+        "user": {
+          "id": 1001
+        }
+      },
+      {
+        "group": {
+          "id": 1001
+        },
+        "overwrite": true,
+        "path": "/opt/transmission/config",
+        "user": {
+          "id": 1001
+        }
+      },
+      {
+        "group": {
+          "id": 1001
+        },
+        "overwrite": true,
+        "path": "/opt/transmission/downloads",
+        "user": {
+          "id": 1001
+        }
+      },
+      {
+        "group": {
+          "id": 1001
+        },
+        "overwrite": true,
+        "path": "/opt/transmission/watch",
+        "user": {
+          "id": 1001
+        }
+      },
+      {
+        "group": {
+          "id": 1001
+        },
+        "overwrite": true,
+        "path": "/opt/transmission/ui",
+        "user": {
+          "id": 1001
+        }
+      },
+      {
+        "group": {
+          "id": 1001
+        },
+        "overwrite": true,
+        "path": "/opt/plex/config",
+        "user": {
+          "id": 1001
+        }
+      },
+      {
+        "group": {
+          "id": 1001
+        },
+        "overwrite": true,
+        "path": "/opt/plex/movies",
+        "user": {
+          "id": 1001
+        }
+      }
+    ],
+    "files": [
+      {
+        "overwrite": true,
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,beelink-fcos%20%0A"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/vconsole.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,KEYMAP%3Ddvorak%0A"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/systemd/zram-generator.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:;base64,IyBUaGlzIGNvbmZpZyBmaWxlIGVuYWJsZXMgYSAvZGV2L3pyYW0wIGRldmljZSB3aXRoIHRoZSBkZWZhdWx0IHNldHRpbmdzClt6cmFtMF0K"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/zincati/config.d/55-updates-strategy.toml",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/1zOwQqCQBDG8fs+xcd2yYttl5DAU3QMAu0kIlO72ILOio6Ibx9Ge+n6Z+bHt8OV6dk5DG70wfoX5sGSuAkkyKhHYBQzW1on7B/lJcEBx798L8oEqvo91mqSkcS1K3LoyGpVxYM0tnTxbMNS1+rr5Kigb4E1NoJGacT3bkNMdjZGq85xK++m9zxvA3OcjPoEAAD//75vG/XAAAAA"
+        }
+      },
+      {
+        "path": "/etc/doas.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,permit%20nopass%20%3Awheel%0A"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/opt/transmission/ui/flood-for-transmission.tar.gz",
+        "contents": {
+          "source": "https://github.com/johman10/flood-for-transmission/releases/download/v1.0.1/flood-for-transmission.tar.gz"
+        }
+      },
+      {
+        "path": "/etc/containers/systemd/transmission.container",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/4SSwWobMRCG73oKQa9N1kvbQxZ0cGLT7iGOW9sJJJgwWY3todoZMxrFzduXtE3rhYYcNL/4+D8EYu5WTLZ2E8yd0t5IOIz9XGIP7L8WiAnN2w7MHyglnw3U/FKBc085k7BzdxfCBsSoa9f2sMWQcqenJFUiLj8y6iNqZUdOk8Awm/srzqDHcNxw42Ky2kcwDIpbyqZPzr2b4IYY/bWk0mP2wNHP0A6i391vFirZ2+CtqhPe0LZ5ydv3eQeK8XUhyoGTQMzN0fVt7QDW7Zo/8Xa9UPN8XoreuXl5SJR3c1ELZ6OzunkeA/qp/lh/aH7N13hV4v7fR035kVS4RzZ/DUrwkDC7Ixrmq3YS6tGoHtLP/6PL2zC1rlotL4b423i2uGwXi/Zqdn8zPb//cnU5DVWhapNE4slG9MSGG9NyNkhp7W6ADeP5U+hLMjopGfXUQLdo7mcAAAD//xPGgGeZAgAA"
+        }
+      },
+      {
+        "path": "/etc/containers/systemd/plex.container",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/2yOzY7aQBCE7/MULeWarJcr0hwIoMgXQgImEohDx9PYLebH6mnz8/YRECAoe6rRN1XVtaki69ZMKNfCnXKKdgTz5AJG+NGj86SgLSoc2XvIiqKAMPd0ggXJgQQ0Qb68IJBjvJk5A0fQlsCxUK1JzlCkTovO06kI6cCUjdmMU1TkSLI1ZcCGrM+1vHEqPMf+dG2Va2ToUSmreQRmGMhefsyo11R1DpWsUMNZ5WzMpwntOBKsku8DAUYHM9Jjkn02N2afc+oUd9wM77r+nFsUcv8bb7uHd30Y/1bbNmV93p7GA0uKgaLCCoXxt6ds/qF2XpUTO3h/H7zSbx/R5dpOtS6q5fgFr6Y/F+X3mXWp3pMYsyljVvR+a35hVHJfzzb0XvlLn0neFKUhNX8CAAD//0dK0lb0AQAA"
+        }
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Layer default packages with rpm-ostree\nWants=network-online.target\nAfter=network-online.target\n# We run before `zincati.service` to avoid conflicting rpm-ostree\n# transactions.\nBefore=zincati.service\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\n# `--allow-inactive` ensures that rpm-ostree does not return an error\n# if the package is already installed. This is useful if the package is\n# added to the root image in a future Fedora CoreOS release as it will\n# prevent the service from failing.\nExecStart=/usr/bin/rpm-ostree install -y --allow-inactive --idempotent vim opendoas avahi\nExecStart=/bin/touch /var/lib/%N.stamp\nExecStart=/bin/systemctl --no-block reboot\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "rpm-ostree-install-defaults.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=Extract Transmission UI\nConditionPathExists!=/opt/transmission/ui/.extracted\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/bin/tar -xzf /opt/transmission/ui/flood-for-transmission.tar.gz -C /opt/transmission/ui\nExecStart=/bin/touch /opt/transmission/ui/.extracted\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "extract-transmission-ui.service"
+      }
+    ]
+  }
+}
